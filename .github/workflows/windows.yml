@@ -1,0 +1,23 @@
+name: Windows Self Hosted Runner
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show Runner Details
+        shell: powershell
+        run: |
+          hostname
+          whoami
+          Get-Date
+
+      - name: Test Message
+        shell: powershell
+        run: |
+          Write-Host "Hello from Windows Server 2016 Self Hosted Runner"
