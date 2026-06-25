@@ -1,11 +1,11 @@
-name: Windows Self Hosted Runner
+name: Windows Runner Test
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: windows-runner-d
 
     steps:
       - uses: actions/checkout@v4
@@ -16,8 +16,5 @@ jobs:
           hostname
           whoami
           Get-Date
-
-      - name: Test Message
-        shell: powershell
-        run: |
-          Write-Host "Hello from Windows Server 2016 Self Hosted Runner"
+          echo "Running from D Drive"
+          dir D:\
